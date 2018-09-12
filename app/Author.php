@@ -1,0 +1,15 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Author extends Model
+{
+    protected $primary_key = 'AuthorID';
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+}

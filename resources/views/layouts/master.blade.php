@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+  <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" >
+  <link href="/css/shop-homepage.css" rel="stylesheet" >
+  <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <title>@yield('title') - Library</title>
+  <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+
+</head>
+<body>
+  @include('partials.header')
+  
+  @yield('content')
+
+  @include('partials.footer')
+  
+  <script>
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    $(function () {
+      var AuthUser = "{{{ (Auth::user()) ? Auth::user() : null }}}";
+      
+      $(".btn-cart").on("click", function () {
+        if (!AuthUser) {
+          alert('Must be logged in to add to cart.');
+          return false;
+        }
+
+        var bookname = $("#bookName").text();
+        
+        var div = $(this).closest(".btn-group");
+        if (!bookname)
+          bookname = $(this).parent().parent().parent().parent().find('h4:first').text();
+        
+        div.empty();
+        if ('<?php echo isset($_GET['gridview']) ? $_GET['gridview'] : ''; ?>' == 'list-view')
+          div.append('<div class="btn-group ml-5"><button class="btn btn-primary disabled">In cart</button></div>');
+        else
+          div.append("<button class='btn btn-primary disabled'>In cart</button>");
+        @auth
+        $.ajax({
+          type: 'POST',
+          url: '/addBookToCart',
+          data: {
+            'userid': <?php echo json_encode(Auth::user()->id); ?>,
+            'bookname': bookname
+          },
+        });
+        @endauth
+      });
+    });
+  </script>
+</body>
+</html>
