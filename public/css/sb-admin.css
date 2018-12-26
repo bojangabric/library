@@ -511,3 +511,12 @@ td {
 .info-label {
   white-space: pre-line;
 }
+
+.header-icon {
+  height: 25px;
+  width: 25px;
+}
+
+.header-library {
+  margin-left: 15pt !important;
+}
