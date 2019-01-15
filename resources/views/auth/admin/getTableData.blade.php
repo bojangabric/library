@@ -17,11 +17,9 @@ $sql_details = array(
   'user' => 'homestead',
   'pass' => 'secret',
   'db'   => 'library',
-  'host' => '192.168.10.10'
+  'host' => '192.168.1.10'
 );
 
-file_put_contents("fajl.txt",  json_encode(
-  SSP::simple( $_GET, $sql_details, $table, $primaryKey, $cols) ));
 echo json_encode(
   SSP::simple( $_GET, $sql_details, $table, $primaryKey, $cols )
 );
