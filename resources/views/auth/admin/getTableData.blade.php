@@ -16,8 +16,8 @@ foreach ($columns as $col) {
 $sql_details = array(
   'user' => 'homestead',
   'pass' => 'secret',
-  'db'   => 'library',
-  'host' => '192.168.1.10'
+  'db'   => 'homestead',
+  'host' => '192.168.1.33'
 );
 
 echo json_encode(
