@@ -1,5 +1,5 @@
 # Library
-![Library_screenshot](giphy.gif)
+![Library_screenshot](library.gif)
 
 Website made for a school project. Its created to act as a template for a bookstore, although it can easily be modified to fit any type of online store.
 
@@ -17,7 +17,7 @@ Download:
 
 After installing vagrant run `vagrant box add laravel/homestead` in your terminal.
 
-Next, you need to clone homestead to your home folder because so you can use it for all of your projects. <br>Run `git clone https://github.com/laravel/homestead.git ~/Homestead`, then `bash init.sh` to create Homestead.yaml configuration file.
+Next, you need to clone homestead to your home folder so you can use one config for all of your projects. <br>Run `git clone https://github.com/laravel/homestead.git ~/Homestead`, then `bash init.sh` to create Homestead.yaml configuration file.
 
 You will use this config file to share your projects to your Homestead environment. You may configure as many shared folders as necessary.<br>
 Example:
@@ -53,6 +53,7 @@ For more info check [Laravel's official site](https://laravel.com/docs/5.7/homes
 # Filling up database
 
 Run `php artisan migrate` to create schemas in your database using migrations in [/database/migrations](/database/migrations).
+
 After creating schemas run `php artisan db:seed --class=CategoriesTableSeeder` to create categories for books.
 
 ## License
