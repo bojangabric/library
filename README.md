@@ -44,8 +44,7 @@ Example:
     192.168.1.10    library.test
     192.168.1.10    phpmyadmin.test
 ```
-
-Git clone this repository `git clone https://github.com/bojangabric/library.git` and change the credentials in `.env.example` file and rename it to `.env`. <br>Run `composer install` in library folder to install all dependencies that are in `composer.json`. Change the ip address in [resources/views/auth/admin/getTableData.blade.php](resources/views/auth/admin/getTableData.blade.php) to one you set in Homestead.yaml.
+Git clone this repository `git clone https://github.com/bojangabric/library.git` and change the credentials in `.env.example` file (change DB_HOST to previously set ip address) and rename it to `.env`. <br>Run `composer install` in library folder to install all dependencies that are in `composer.json`. Change the ip address in [resources/views/auth/admin/getTableData.blade.php](resources/views/auth/admin/getTableData.blade.php) to one you set in Homestead.yaml.
 
 Once you have edited the Homestead.yaml to your liking, run the `vagrant up` command from your Homestead directory. Vagrant will boot the virtual machine and automatically configure your shared folders and Nginx sites.
 
@@ -54,6 +53,7 @@ For more info check [Laravel's official site](https://laravel.com/docs/5.7/homes
 # Filling up database
 
 Run `php artisan migrate` to create schemas in your database using migrations in [/database/migrations](/database/migrations).
+After creating schemas run `php artisan db:seed --class=CategoriesTableSeeder` to create categories for books.
 
 ## License
 See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
