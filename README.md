@@ -1,7 +1,7 @@
 # Library
 ![Library_screenshot](library.gif)
 
-Website made for a school project. Its created to act as a template for a bookstore, although it can easily be modified to fit any type of online store.
+Website created to act as a template for a bookstore, although it can easily be modified to fit any type of online store.
 
 # Tech/Frameworks used
 - Laravel
