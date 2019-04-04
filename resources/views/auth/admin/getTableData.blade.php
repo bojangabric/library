@@ -14,10 +14,10 @@ foreach ($columns as $col) {
 }
  
 $sql_details = array(
-  'user' => 'homestead',
-  'pass' => 'secret',
-  'db'   => 'homestead',
-  'host' => '192.168.1.33'
+  'user' => $_ENV["DB_USERNAME"],
+  'pass' => $_ENV["DB_PASSWORD"],
+  'db'   => $_ENV["DB_DATABASE"],
+  'host' => $_ENV["DB_HOST"]
 );
 
 echo json_encode(
