@@ -27,8 +27,8 @@
                 <?php
                   $alltables = DB::select('SHOW TABLES');
                   foreach ($alltables as $table) {
-                    echo '<option ' . ($selected_table == $table->Tables_in_homestead ? 'selected ' : '') .
-                      'value="' . $table->Tables_in_homestead . '">' . $table->Tables_in_homestead	 .'</option>';
+                    echo '<option ' . ($selected_table == $table->Tables_in_FjN4KIpOaB ? 'selected ' : '') .
+                      'value="' . $table->Tables_in_FjN4KIpOaB . '">' . $table->Tables_in_FjN4KIpOaB	 .'</option>';
                   }
                 ?>
               </select>
