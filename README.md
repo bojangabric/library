@@ -1,4 +1,13 @@
 # Library
+<center>
+
+  [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://github.com/bojangabric/library)
+  [![Code size](https://img.shields.io/github/languages/code-size/bojangabric/library.svg)](https://github.com/bojangabric/library)
+  [![Languages](https://img.shields.io/github/languages/count/bojangabric/library.svg)](https://github.com/bojangabric/library)
+  [![License](https://img.shields.io/github/license/bojangabric/library.svg)](https://github.com/bojangabric/library)
+
+</center>
+
 ![Library_screenshot](library.gif)
 
 Website created to act as a template for a bookstore, although it can easily be modified to fit any type of online store.
