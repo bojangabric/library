@@ -1,12 +1,10 @@
 # Library
-<center>
-
-  [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://github.com/bojangabric/library)
-  [![Code size](https://img.shields.io/github/languages/code-size/bojangabric/library.svg)](https://github.com/bojangabric/library)
-  [![Languages](https://img.shields.io/github/languages/count/bojangabric/library.svg)](https://github.com/bojangabric/library)
-  [![License](https://img.shields.io/github/license/bojangabric/library.svg)](https://github.com/bojangabric/library)
-
-</center>
+<p align="center">
+  <img src="https://img.shields.io/badge/Maintained%3F-no-red.svg" alt="Maintained">
+  <img src="https://img.shields.io/github/languages/code-size/bojangabric/library.svg" alt="GitHub code size in bytes">
+  <img src="https://img.shields.io/github/languages/count/bojangabric/library.svg" alt="GitHub language count">
+  <img src="https://img.shields.io/github/license/bojangabric/library.svg" alt="License">
+</p>
 
 ![Library_screenshot](library.gif)
 
