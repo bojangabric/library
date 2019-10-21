@@ -18,4 +18,7 @@ mix
   .options({
     processCssUrls: false,
     postCss: [tailwindcss("./tailwind.config.js")]
+  })
+  .browserSync({
+    proxy: "library.local"
   });
