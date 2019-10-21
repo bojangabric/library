@@ -3,46 +3,43 @@
 @section('title', 'Home')
 @section('content')
 
-<div class="container">
-    <header class="jumbotron my-4 textstroke">
-        <h1 class="display-3">
-        <strong>
+<div class="w-4/6 mx-auto">
+    <div class="jumbotron my-4 text-white rounded pl-10 pb-5">
+        <p class="text-6xl textstroke font-semibold pt-16">
             @guest
             Welcome to the Library!
             @else
             Welcome to the Library, {{ Auth::user()->name }}!
             @endguest
-        </strong>
-        </h1>
-        <p class="lead"><strong>Search for any book in the world</strong></p>
-        <a href="/store/categories/1" class="btn btn-primary btn-lg">Shop!</a>
-    </header>
-    <!-- Jumbotron -->
+        </p>
+        <p class="text-xl textstroke font-semibold">Search for any book in the world</p>
+        <div class="my-5">
+            <a href="/store/categories/1" class="bg-blue-600 py-3 px-5 rounded">Shop!</a>
+        </div>
+    </div>
 
-    <div class="row text-center">
+    <div class="flex flex-wrap justify-between">
         <?php
         $randBooks = App\Book::inRandomOrder()->take(4)->get();
-        
+
         foreach ($randBooks as $book) {
-            $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first(); 
-            echo '<div class="col-lg-3 col-md-6 mb-4">';
-            echo '<div class="card h-100">';
-            echo '<a href="/store/book/' . $book->BookID .
-                '"><img class="card-img-top thumbnailpic" src="/images/' .
-                $book->Image . '" alt="' . $book->Name . '"></a>';
-            echo '<h4 class="card-title thumbnail-card-title">' . $book->Name . '</h4>';
-            echo '<div class="card-body d-flex flex-column justify-content-end">';
-            echo '<p class="card-text card-author">' . $author->Name . ' ' . $author->Surname . '</p>';
-            echo '</div>';
-            echo '<div class="card-footer">';
-            echo '<a href="/store/book/' . $book->BookID . '" class="btn btn-primary">Find Out More!</a>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
+            $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
+            ?>
+            <div class="w-1/4">
+                <div class="mx-2 rounded bg-white text-center pb-6 shadow-xl">
+                    <a href="{{'/store/book/' . $book->BookID}}">
+                        <img class="w-full h-64 rounded-t" src="{{'/images/' . $book->Image}}" alt="{{'/images/' . $book->Image}}">
+                    </a>
+                    <p class="text-2xl mt-5 mb-1 font-semibold">{{$book->Name}}</p>
+                    <p class="mb-6">{{$author->Name . ' ' . $author->Surname}}</p>
+                    <div class="bg-blue-500 w-1/2 mx-auto rounded text-white py-2">
+                        <a href="{{'/store/book/' . $book->BookID}}">Find Out More!</a>
+                    </div>
+                </div>
+            </div>
+        <?php
         }
         ?>
-
     </div>
-    <!-- Items -->
 </div>
 @endsection
