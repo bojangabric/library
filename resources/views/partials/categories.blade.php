@@ -1,27 +1,23 @@
-<div class="col-lg-3">
-  <h1 class="my-4 ml-5"></h1>
-  <div class="list-group ml-5" style="top:80px">
-    <?php
-    $categories = App\Category::all();
+<div class="w-2/12 rounded-lg overflow-hidden mr-6">
+  <?php
+  $categories = App\Category::all();
 
-    foreach ($categories as $category) 
-    {
-      echo "<a href='/store/categories/" . $category->CategoryID . "?sort=" .
-        (isset($_GET['sort']) ? $_GET['sort'] : '') . "&gridview=" .
-        (isset($_GET['gridview']) ? $_GET['gridview'] : '') . "' class='list-group-item'>" .
-        $category->CategoryName . "</a>";
-    }
-    ?>
-  </div>
+  foreach ($categories as $category) {
+    echo "<a class='text-lg text-blue-500 bg-white border px-4 py-2 block list-group-item' href='/store/categories/" . $category->CategoryID . "?sort=" . (isset($_GET['sort']) ? $_GET['sort'] : '') . "&gridview=" . (isset($_GET['gridview']) ? $_GET['gridview'] : '') . "'>" .
+      $category->CategoryName . "</a>";
+  }
+  ?>
 </div>
 
 <script>
   var checkvalue = window.location.pathname;
 
-  $(".list-group-item").each(function () {
+  $(".list-group-item").each(function() {
     var hrefval = $(this).attr('href').split('?')[0];
     if (hrefval == checkvalue) {
-      $(this).addClass("category-active");
+      $(this).removeClass("text-blue-500");
+      $(this).addClass("bg-blue-400");
+      $(this).addClass("text-white");
     }
   });
 </script>
