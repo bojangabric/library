@@ -45,7 +45,7 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
         echo '<div class="row">';
         echo '<div class="col-md-4">';
         echo '<a href="/store/book/' . $book->BookID . '"><img class="card-img-top thumbnail-list-pic" src="/images/' .
-        $book->Image . '" alt=""></a>';
+            $book->Image . '" alt=""></a>';
         echo '</div>';
         echo '<div class="col-lg-8">';
         echo '<div>';
@@ -74,43 +74,43 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
     }
 } else {
     foreach ($books as $book) {
-        echo '<div class="col-lg-4 col-md-6 col-xl-4 mb-4">';
-        echo '<div class="card h-100 mr-5">';
-        echo '<a href="/store/book/' . $book->BookID . '"><img class="card-img-top thumbnail-gallery-pic" src="/images/' .
-        $book->Image . '" alt=""></a>';
-        echo '<div class="card-body">';
-        echo '<h4 class="card-title">';
-        echo '<a href="/store/book/' . $book->BookID . '">' . $book->Name . '</a>';
-        echo '</h4>';
-        echo '</div>';
-        echo '<div class="card-body d-flex flex-column justify-content-end">';
         $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
-        echo '<h4 class="card-author">' . $author->Name . ' ' . $author->Surname . '</h4>';
-        echo '<h5 class="card-rating">' . $book->getRating() . '</h5>';
-        echo '</div>';
-        echo '<div class="card-footer">';
-        echo '<small class="text-warning">$' . $book->Price . '</small>';
-        echo '<div class="btn-group float-right">';
-        if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
+        ?>
+        <div class="w-1/4 px-4 mb-4 flex">
+            <div class="bg-white shadow-md">
+                <a href="{{'/store/book/' . $book->BookID}}">
+                    <img class="w-full h-64" src="{{'/images/' . $book->Image}}" alt="">
+                </a>
+                <div class="text-xl font-semibold">
+                    <a href="{{'/store/book/' . $book->BookID}}">{{$book->Name}}</a>
+                </div>
+                <div class="">
+                    <p class="">{{$author->Name . ' ' . $author->Surname}}</p>
+                    <p class="text-2xl text-yellow-500"><?php echo $book->getRating(); ?></p>
+                </div>
+                <div class="flex justify-between">
+                    <div class="text-2xl">${{$book->Price}}</div>
+                    <div class="bg-blue-500 text-white font-semibold text-center px-5 py-2">Buy</div>
+                    <!-- if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
             echo '<div class="btn-group"><button class="btn btn-primary disabled">In cart</button></div>';
         } else {
             if (DB::table('books')->where('BookID', $book->BookID)->where('Quantity', '>', 0)->exists()) {
-                echo '<button type="button" class="btn btn-primary">Buy</button>';
-                echo '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-                echo '<span class="sr-only">Toggle Dropdown</span>';
-                echo '</button>';
-                echo '<div class="dropdown-menu dropdown-btn-cart">';
-                echo '<button class="dropdown-item btn-cart">Add to cart</button>';
-                echo '</div>';
+                <button type="button" class="btn btn-primary">Buy</button>';
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                <span class="sr-only">Toggle Dropdown</span>';
+                </button>';
+                <div class="dropdown-menu dropdown-btn-cart">';
+                <button class="dropdown-item btn-cart">Add to cart</button>';
+                </div>';
             }
             else {
                 echo '<div class="btn-group"><button class="btn btn-primary disabled">Sold out</button></div>';
             }
-        }
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
+        } -->
+                </div>
+            </div>
+        </div>
+<?php
     }
 }
 
@@ -119,4 +119,3 @@ echo '<div class="pagination">';
 echo $books->appends(request()->except('page'))->links();
 echo '</div>';
 echo '</div>';
-
