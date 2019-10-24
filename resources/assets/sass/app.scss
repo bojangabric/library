@@ -16,3 +16,51 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.pagination {
+  @apply mx-auto;
+
+  .page-item {
+    display: inline-block;
+  }
+}
+
+.card {
+  width: 250px;
+  background: #000;
+
+  .image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      transition: 0.25s;
+      transition-delay: 0s;
+    }
+  }
+
+  .details {
+    @apply bg-indigo-100;
+    // background-color: #515151;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    transition: 0.5s;
+    left: -100%;
+  }
+
+  &:hover {
+    .details {
+      left: 0;
+    }
+
+    .image img {
+      opacity: 0.5;
+      transform: translateX(25%);
+      transition: 0.5s;
+      transition-delay: 0.3s;
+    }
+  }
+}

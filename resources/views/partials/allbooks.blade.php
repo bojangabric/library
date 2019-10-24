@@ -3,95 +3,102 @@
 $keyword = (isset($_GET['keyword']) && !empty($_GET['keyword'])) ? $_GET['keyword'] : '';
 
 if ($categoryid == 1) {
-    if (isset($_GET['sort']) && !empty($_GET['sort'])) {
-        if ($_GET['sort'] == 'price-asc') {
-            $books = App\Book::orderBy('Price', 'asc')->paginate(15);
-        } elseif ($_GET['sort'] == 'price-desc') {
-            $books = App\Book::orderBy('Price', 'desc')->paginate(15);
-        } elseif ($_GET['sort'] == 'highest-rating') {
-            $books = App\Book::orderBy('StarRating', 'desc')->paginate(15);
-        } elseif ($_GET['sort'] == 'most-reviews') {
-            $books = App\Book::select(DB::raw('books.*, count(*) as `total`'))
-                ->leftJoin('reviews', 'books.BookID', '=', 'reviews.BookID')
-                ->groupBy('books.BookID')
-                ->orderBy('total', 'DESC')
-                ->paginate(15);
-        }
-    } else {
-        $books = App\Book::where('Name', 'like', '%' . $keyword . '%')->paginate(15);
+  if (isset($_GET['sort']) && !empty($_GET['sort'])) {
+    if ($_GET['sort'] == 'price-asc') {
+      $books = App\Book::orderBy('Price', 'asc')->paginate(15);
+    } elseif ($_GET['sort'] == 'price-desc') {
+      $books = App\Book::orderBy('Price', 'desc')->paginate(15);
+    } elseif ($_GET['sort'] == 'highest-rating') {
+      $books = App\Book::orderBy('StarRating', 'desc')->paginate(15);
+    } elseif ($_GET['sort'] == 'most-reviews') {
+      $books = App\Book::select(DB::raw('books.*, count(*) as `total`'))
+        ->leftJoin('reviews', 'books.BookID', '=', 'reviews.BookID')
+        ->groupBy('books.BookID')
+        ->orderBy('total', 'DESC')
+        ->paginate(15);
     }
+  } else {
+    $books = App\Book::where('Name', 'like', '%' . $keyword . '%')->paginate(15);
+  }
 } else {
-    if (isset($_GET['sort']) && !empty($_GET['sort'])) {
-        if ($_GET['sort'] == 'price-asc') {
-            $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('Price', 'asc')->paginate(15);
-        } elseif ($_GET['sort'] == 'price-desc') {
-            $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('Price', 'desc')->paginate(15);
-        } elseif ($_GET['sort'] == 'highest-rating') {
-            $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('StarRating', 'desc')->paginate(15);
-        } elseif ($_GET['sort'] == 'most-reviews') {
-            $books = App\Book::select(DB::raw('books.*, count(*) as `total`'))->where('CategoryID', '=', $categoryid)
-                ->leftJoin('reviews', 'books.BookID', '=', 'reviews.BookID')
-                ->groupBy('books.BookID')
-                ->orderBy('total', 'DESC')
-                ->paginate(15);
-        }
+  if (isset($_GET['sort']) && !empty($_GET['sort'])) {
+    if ($_GET['sort'] == 'price-asc') {
+      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('Price', 'asc')->paginate(15);
+    } elseif ($_GET['sort'] == 'price-desc') {
+      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('Price', 'desc')->paginate(15);
+    } elseif ($_GET['sort'] == 'highest-rating') {
+      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('StarRating', 'desc')->paginate(15);
+    } elseif ($_GET['sort'] == 'most-reviews') {
+      $books = App\Book::select(DB::raw('books.*, count(*) as `total`'))->where('CategoryID', '=', $categoryid)
+        ->leftJoin('reviews', 'books.BookID', '=', 'reviews.BookID')
+        ->groupBy('books.BookID')
+        ->orderBy('total', 'DESC')
+        ->paginate(15);
     }
+  }
 }
 
 if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
-    foreach ($books as $book) {
-        echo '<div class="col-lg-9 mb-4">';
-        echo '<div class="card" >';
-        echo '<div class="row">';
-        echo '<div class="col-md-4">';
-        echo '<a href="/store/book/' . $book->BookID . '"><img class="card-img-top thumbnail-list-pic" src="/images/' .
-            $book->Image . '" alt=""></a>';
-        echo '</div>';
-        echo '<div class="col-lg-8">';
-        echo '<div>';
-        echo '<h4 class="card-title mt-4">';
-        echo '<a href="/store/book/' . $book->BookID . '">' . $book->Name . '</a>';
-        echo '</h4>';
-        $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
-        echo '<p>' . $author->Name . ' ' . $author->Surname . '</p>';
-        echo '<p class="card-text list-book-text">' . substr($book->BookDescription, 0, 90) . '...' . '</p>';
-        echo '</div>';
-        echo '<div class="mt-4 text-warning">';
-        echo '$' . $book->Price . '<span class="card-rating">' . str_repeat('&nbsp;', 3) . $book->getRating() . '</span>';
-        if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
-            echo '<div class="btn-group ml-5"><button class="btn btn-primary disabled">In cart</button></div>';
-        } else {
-            if (DB::table('books')->where('BookID', $book->BookID)->where('Quantity', '>', 0)->exists())
-                echo '<div class="btn-group ml-2"><button class="btn btn-primary buy-button">Buy</button><button class="btn btn-primary btn-cart">Add to cart</button></div>';
-            else
-                echo '<div class="btn-group ml-5"><button class="btn btn-primary disabled">Sold out</button></div>';
-        }
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
+  foreach ($books as $book) {
+    echo '<div class="col-lg-9 mb-4">';
+    echo '<div class="card" >';
+    echo '<div class="row">';
+    echo '<div class="col-md-4">';
+    echo '<a href="/store/book/' . $book->BookID . '"><img class="card-img-top thumbnail-list-pic" src="/images/' .
+      $book->Image . '" alt=""></a>';
+    echo '</div>';
+    echo '<div class="col-lg-8">';
+    echo '<div>';
+    echo '<h4 class="card-title mt-4">';
+    echo '<a href="/store/book/' . $book->BookID . '">' . $book->Name . '</a>';
+    echo '</h4>';
+    $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
+    echo '<p>' . $author->Name . ' ' . $author->Surname . '</p>';
+    echo '<p class="card-text list-book-text">' . substr($book->BookDescription, 0, 90) . '...' . '</p>';
+    echo '</div>';
+    echo '<div class="mt-4 text-warning">';
+    echo '$' . $book->Price . '<span class="card-rating">' . str_repeat('&nbsp;', 3) . $book->getRating() . '</span>';
+    if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
+      echo '<div class="btn-group ml-5"><button class="btn btn-primary disabled">In cart</button></div>';
+    } else {
+      if (DB::table('books')->where('BookID', $book->BookID)->where('Quantity', '>', 0)->exists())
+        echo '<div class="btn-group ml-2"><button class="btn btn-primary buy-button">Buy</button><button class="btn btn-primary btn-cart">Add to cart</button></div>';
+      else
+        echo '<div class="btn-group ml-5"><button class="btn btn-primary disabled">Sold out</button></div>';
     }
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+  }
 } else {
-    foreach ($books as $book) {
-        $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
-        ?>
-        <div class="w-1/4 px-4 mb-4 flex">
-            <div class="bg-white shadow-md">
-                <a href="{{'/store/book/' . $book->BookID}}">
-                    <img class="w-full h-64" src="{{'/images/' . $book->Image}}" alt="">
-                </a>
-                <div class="text-xl font-semibold">
-                    <a href="{{'/store/book/' . $book->BookID}}">{{$book->Name}}</a>
-                </div>
-                <div class="">
-                    <p class="">{{$author->Name . ' ' . $author->Surname}}</p>
-                    <p class="text-2xl text-yellow-500"><?php echo $book->getRating(); ?></p>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-2xl">${{$book->Price}}</div>
-                    <div class="bg-blue-500 text-white font-semibold text-center px-5 py-2">Buy</div>
-                    <!-- if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
+  foreach ($books as $book) {
+    $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
+    ?>
+    <div class="w-1/4 px-4 mb-4 flex">
+      <div class="card relative overflow-hidden">
+        <div class="image">
+          <!-- <a href="{{'/store/book/' . $book->BookID}}"> -->
+          <!-- </a> -->
+          <img src="{{'/images/' . $book->Image}}" />
+        </div>
+        <div class="details absolute text-white flex content-center flex-wrap">
+          <div class="text-xl font-semibold">
+            <a href="{{'/store/book/' . $book->BookID}}">{{$book->Name}}</a>
+          </div>
+          <div class="">{{$author->Name . ' ' . $author->Surname}}</div>
+          <div class="text-2xl text-yellow-500"><?php echo $book->getRating(); ?></div>
+          <div class="text-2xl">${{$book->Price}}</div>
+          <div class="absolute bottom-0 left-0 right-0">
+            <a href="/">
+              <div class="bg-blue-500 text-white font-semibold text-center px-5 py-2">Read more</div>
+            </a>
+            <a href="/">
+              <div class="bg-green-500 text-white font-semibold text-center px-5 py-2">Buy</div>
+            </a>
+          </div>
+          <!-- if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
             echo '<div class="btn-group"><button class="btn btn-primary disabled">In cart</button></div>';
         } else {
             if (DB::table('books')->where('BookID', $book->BookID)->where('Quantity', '>', 0)->exists()) {
@@ -107,15 +114,16 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
                 echo '<div class="btn-group"><button class="btn btn-primary disabled">Sold out</button></div>';
             }
         } -->
-                </div>
-            </div>
         </div>
+      </div>
+    </div>
 <?php
-    }
+  }
 }
+?>
 
-echo '<div class="col-lg-9 mb-4">';
-echo '<div class="pagination">';
-echo $books->appends(request()->except('page'))->links();
-echo '</div>';
-echo '</div>';
+</div>
+
+<div class="flex pb-12">
+  {{ $books->appends(request()->except('page'))->links() }}
+</div>
