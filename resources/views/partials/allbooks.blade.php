@@ -83,12 +83,12 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
           <!-- </a> -->
           <img src="{{'/images/' . $book->Image}}" />
         </div>
-        <div class="details absolute text-white flex content-center flex-wrap">
-          <div class="text-xl font-semibold">
+        <div class="details absolute text-white text-center">
+          <div class="text-lg font-semibold px-2 mt-6">
             <a href="{{'/store/book/' . $book->BookID}}">{{$book->Name}}</a>
           </div>
-          <div class="">{{$author->Name . ' ' . $author->Surname}}</div>
-          <div class="text-2xl text-yellow-500"><?php echo $book->getRating(); ?></div>
+          <div class="text-gray-400">{{$author->Name . ' ' . $author->Surname}}</div>
+          <div class="text-2xl text-yellow-500 mt-6"><?php echo $book->getRating(); ?></div>
           <div class="text-2xl">${{$book->Price}}</div>
           <div class="absolute bottom-0 left-0 right-0">
             <a href="{{'/store/book/' . $book->BookID}}">
