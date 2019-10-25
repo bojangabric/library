@@ -6,8 +6,8 @@
         <span class="page-link" aria-hidden="true">&lsaquo; Prev</span>
     </div>
     @else
-    <div class="page-item">
-        <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo; Prev</a>
+    <div class="page-item prev-btn">
+        <a class="page-link hover:text-blue-400" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo; Prev</a>
     </div>
     @endif
 

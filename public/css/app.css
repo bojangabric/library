@@ -10974,7 +10974,7 @@ video {
   display: inline-block;
 }
 
-.pagination .page-item:hover:not(.disabled):not(.active):not(.next-btn) {
+.pagination .page-item:hover:not(.disabled):not(.active):not(.next-btn):not(.prev-btn) {
   background-color: #63b3ed;
   color: #fff;
 }

@@ -24,7 +24,7 @@
     @apply px-2 rounded;
     display: inline-block;
 
-    &:hover:not(.disabled):not(.active):not(.next-btn) {
+    &:hover:not(.disabled):not(.active):not(.next-btn):not(.prev-btn) {
       @apply bg-blue-400 text-white;
     }
   }
