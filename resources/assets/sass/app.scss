@@ -27,6 +27,7 @@
 
 .card {
   width: 250px;
+  height: 300px;
   background: #000;
 
   .image {
@@ -42,7 +43,7 @@
   }
 
   .details {
-    @apply bg-indigo-100;
+    @apply bg-gray-800;
     // background-color: #515151;
     top: 0;
     width: 70%;
