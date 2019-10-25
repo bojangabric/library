@@ -91,7 +91,7 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
           <div class="text-2xl text-yellow-500"><?php echo $book->getRating(); ?></div>
           <div class="text-2xl">${{$book->Price}}</div>
           <div class="absolute bottom-0 left-0 right-0">
-            <a href="/">
+            <a href="{{'/store/book/' . $book->BookID}}">
               <div class="bg-blue-500 text-white font-semibold text-center px-5 py-2">Read more</div>
             </a>
             <a href="/">
