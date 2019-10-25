@@ -124,6 +124,6 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
 
 </div>
 
-<div class="flex pb-12">
+<div class="flex py-10">
   {{ $books->appends(request()->except('page'))->links() }}
 </div>
