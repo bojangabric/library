@@ -10,8 +10,6 @@ body {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 35px;
   padding-top: 7px;
@@ -10966,10 +10964,23 @@ video {
 .pagination {
   margin-left: auto;
   margin-right: auto;
+  font-size: 1.125rem;
 }
 
 .pagination .page-item {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.25rem;
   display: inline-block;
+}
+
+.pagination .page-item:hover:not(.disabled):not(.active):not(.next-btn) {
+  background-color: #63b3ed;
+  color: #fff;
+}
+
+.pagination .disabled {
+  color: #a0aec0;
 }
 
 .card {

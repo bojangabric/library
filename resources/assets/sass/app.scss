@@ -18,10 +18,19 @@
 }
 
 .pagination {
-  @apply mx-auto;
+  @apply mx-auto text-lg;
 
   .page-item {
+    @apply px-2 rounded;
     display: inline-block;
+
+    &:hover:not(.disabled):not(.active):not(.next-btn) {
+      @apply bg-blue-400 text-white;
+    }
+  }
+
+  .disabled {
+    @apply text-gray-500;
   }
 }
 
