@@ -27,11 +27,12 @@
 
 </head>
 
-<body>
+<body class="relative min-h-screen">
   @include('partials.header')
 
-  @yield('content')
-
+  <div class="pb-16">
+    @yield('content')
+  </div>
   @include('partials.footer')
 
   <script>

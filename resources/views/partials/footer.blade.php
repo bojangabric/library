@@ -1,4 +1,4 @@
-<footer class="bg-gray-900">
+<footer class="bg-gray-900 absolute bottom-0 w-full py-3">
     <div class="text-center text-white w-4/6 text-center mx-auto" style="position:relative;">
         Copyright &copy; Library {{ date('Y') }}
         <div style="position:absolute;right:0;top:0;margin-left:110px;text-align:right;">

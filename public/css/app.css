@@ -9,12 +9,6 @@ body {
   background-image: url("/images/stone.jpg");
 }
 
-footer {
-  width: 100%;
-  height: 35px;
-  padding-top: 7px;
-}
-
 .jumbotron {
   background-image: url("/images/library.jpg");
   background-size: cover;
