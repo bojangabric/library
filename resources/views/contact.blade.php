@@ -4,61 +4,49 @@
 @section('content')
 
 
-<br>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Contact') }}</div>
+<form class="mx-auto mt-8 p-8 bg-white shadow-md rounded w-full max-w-xl" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+    @csrf
 
-                <div class="card-body">
-                    <form method="POST" aria-label="{{ __('Contact') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="firstname" class="col-sm-4 col-form-label text-md-right">{{ __('First name') }}</label>
-                            <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control" name="firstname" required autofocus>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="lastname" class="col-sm-4 col-form-label text-md-right">{{ __('Last name') }}</label>
-                            <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control" name="lastname" required autofocus>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
-                            <div class="col-md-6">
-                                <select name="country" class="form-control" id="country">
-                                    <option value="serbia">Serbia</option>
-                                    <option value="france">France</option>
-                                    <option value="germany">Germany</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="message" class="col-md-4 col-form-label text-md-right">{{ __('Message') }}</label>
-                            <div class="col-md-6">
-                                <textarea id="message" class="form-control" name="message" rows="8" required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Submit') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+                {{ __('Name') }}
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" type="text" id="name" name="name" required autofocus placeholder="Jane">
+            @if ($errors->has('name'))
+            <span class="invalid-feedback text-red-500 text-xs italic" role="alert">
+                {{ $errors->first('name') }}
+            </span>
+            @endif
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+                {{ __('E-Mail Address') }}
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" name="email" id="email" type="email" placeholder="jane@example.com">
+            @if ($errors->has('email'))
+            <span class="invalid-feedback text-red-500 text-xs italic" role="alert">
+                {{ $errors->first('email') }}
+            </span>
+            @endif
         </div>
     </div>
-</div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password">
+                {{ __('Message') }}
+            </label>
+            <textarea rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" name="message" id="message"></textarea>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-between">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit">
+            {{ __('Send') }}
+        </button>
+    </div>
+
+</form>
 
 @endsection
