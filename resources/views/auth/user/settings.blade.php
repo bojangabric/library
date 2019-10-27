@@ -3,90 +3,108 @@
 @section('title', 'Settings')
 @section('content')
 
-<br>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Settings') }}</div>
 
-                <div class="card-body">
-                    @if (session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                    <form method="POST" action="{{ route('changeSettings') }}" aria-label="{{ __('Save') }}">
-                        @csrf
+<form class="mx-auto mt-8 p-8 bg-white shadow-md rounded w-full max-w-xl" method="POST" action="{{ route('changeSettings') }}" aria-label="{{ __('Save') }}">
+  @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-sm-4 col-form-label text-md-right">{{ __('Name') }}</label>
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ Auth::user()->name }}" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ Auth::user()->email }}" required>
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="new-password" class="col-md-4 col-form-label text-md-right">Current password</label>
-                            <div class="col-md-6">
-                                <input id="current-password" type="password" class="form-control{{ $errors->has('current-password') ? ' has-error' : '' }}" name="current-password" required>
-                                @if ($errors->has('current-password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('current-password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
- 
-                        <div class="form-group row">
-                            <label for="new-password" class="col-md-4 col-form-label text-md-right">New password</label>
-                            <div class="col-md-6">
-                                <input id="new-password" type="password" class="form-control{{ $errors->has('new-password') ? ' has-error' : '' }}" name="new-password">
-                                @if ($errors->has('new-password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('new-password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
- 
-                        <div class="form-group row">
-                            <label for="new-password-confirm" class="col-md-4 col-form-label text-md-right">Confirm new password</label>
-                            <div class="col-md-6">
-                                <input id="new-password-confirm" type="password" class="form-control" name="new-password-confirm">
-                            </div>
-                        </div>
- 
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Save') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+        {{ __('First name') }}
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" type="text" id="name" name="name" required value="{{ Auth::user()->name }}">
+      @if ($errors->has('first_name'))
+      <span class="invalid-feedback text-red-500 text-xs italic" role="alert">
+        {{ $errors->first('first_name') }}
+      </span>
+      @endif
     </div>
-</div>
+    <div class="w-full md:w-1/2 px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="last-name">
+        {{ __('Last name') }}
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" type="text" id="last-name" name="last-name" type="text" value="{{ Auth::user()->last_name }}">
+      @if ($errors->has('last_name'))
+      <span class="invalid-feedback text-red-500 text-xs italic" role="alert">
+        {{ $errors->first('last_name') }}
+      </span>
+      @endif
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+        {{ __('E-Mail Address') }}
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" name="email" id="email" type="email" value="{{ Auth::user()->email }}">
+      @if ($errors->has('email'))
+      <span class="invalid-feedback text-red-500 text-xs italic" role="alert">
+        {{ $errors->first('email') }}
+      </span>
+      @endif
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="current-password">
+        {{ __('Current password') }}
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" name="current-password" id="current-password" type="password" required placeholder="******************">
+      @if ($errors->has('current-password'))
+      <span class="invalid-feedback text-red-500 text-xs italic" role="alert">
+        {{ $errors->first('current-password') }}
+      </span>
+      @endif
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="new-password">
+        {{ __('New password') }}
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" name="new-password" id="new-password" type="password" placeholder="******************">
+      @if ($errors->has('new-password'))
+      <span class="invalid-feedback text-red-500 text-xs italic" role="alert">
+        {{ $errors->first('new-password') }}
+      </span>
+      @endif
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="new-password-confirm">
+        {{ __('Confirm new password') }}
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-400" name="new-password-confirm" id="new-password-confirm" type="password" placeholder="******************">
+      @if ($errors->has('new-password'))
+      <span class="invalid-feedback text-red-500 text-xs italic" role="alert">
+        {{ $errors->first('new-password') }}
+      </span>
+      @endif
+    </div>
+  </div>
+
+  @if (session('error'))
+  <div class="bg-red-500 rounded text-white px-3 py-2 text-md mb-3 -mt-3">
+    {{session('error')}}
+  </div>
+  @endif
+  @if (session('success'))
+  <div class="bg-green-500 rounded text-white px-3 py-2 text-md mb-3 -mt-3">
+    {{session('success')}}
+  </div>
+  @endif
+
+  <div class="flex items-center justify-between">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+      {{ __('Save') }}
+    </button>
+  </div>
+
+</form>
 
 @endsection
