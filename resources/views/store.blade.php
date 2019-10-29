@@ -3,7 +3,7 @@
 @section('title', 'Store')
 @section('content')
 
-<div class="flex w-4/6 mx-auto mt-6">
+<div class="flex xl:w-5/6 mx-auto mt-6 justify-center">
 
   @include('partials.categories')
 
