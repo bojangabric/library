@@ -5,35 +5,35 @@ $keyword = (isset($_GET['keyword']) && !empty($_GET['keyword'])) ? $_GET['keywor
 if ($categoryid == 1) {
   if (isset($_GET['sort']) && !empty($_GET['sort'])) {
     if ($_GET['sort'] == 'price-asc') {
-      $books = App\Book::orderBy('Price', 'asc')->paginate(15);
+      $books = App\Book::orderBy('Price', 'asc')->paginate(16);
     } elseif ($_GET['sort'] == 'price-desc') {
-      $books = App\Book::orderBy('Price', 'desc')->paginate(15);
+      $books = App\Book::orderBy('Price', 'desc')->paginate(16);
     } elseif ($_GET['sort'] == 'highest-rating') {
-      $books = App\Book::orderBy('StarRating', 'desc')->paginate(15);
+      $books = App\Book::orderBy('StarRating', 'desc')->paginate(16);
     } elseif ($_GET['sort'] == 'most-reviews') {
       $books = App\Book::select(DB::raw('books.*, count(*) as `total`'))
         ->leftJoin('reviews', 'books.BookID', '=', 'reviews.BookID')
         ->groupBy('books.BookID')
         ->orderBy('total', 'DESC')
-        ->paginate(15);
+        ->paginate(16);
     }
   } else {
-    $books = App\Book::where('Name', 'like', '%' . $keyword . '%')->paginate(15);
+    $books = App\Book::where('Name', 'like', '%' . $keyword . '%')->paginate(16);
   }
 } else {
   if (isset($_GET['sort']) && !empty($_GET['sort'])) {
     if ($_GET['sort'] == 'price-asc') {
-      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('Price', 'asc')->paginate(15);
+      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('Price', 'asc')->paginate(16);
     } elseif ($_GET['sort'] == 'price-desc') {
-      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('Price', 'desc')->paginate(15);
+      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('Price', 'desc')->paginate(16);
     } elseif ($_GET['sort'] == 'highest-rating') {
-      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('StarRating', 'desc')->paginate(15);
+      $books = App\Book::where('CategoryID', '=', $categoryid)->orderBy('StarRating', 'desc')->paginate(16);
     } elseif ($_GET['sort'] == 'most-reviews') {
       $books = App\Book::select(DB::raw('books.*, count(*) as `total`'))->where('CategoryID', '=', $categoryid)
         ->leftJoin('reviews', 'books.BookID', '=', 'reviews.BookID')
         ->groupBy('books.BookID')
         ->orderBy('total', 'DESC')
-        ->paginate(15);
+        ->paginate(16);
     }
   }
 }
@@ -76,11 +76,9 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
   foreach ($books as $book) {
     $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
     ?>
-    <div class="w-1/4 px-4 mb-4 flex">
+    <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4 justify-center flex">
       <div class="card relative overflow-hidden">
         <div class="image">
-          <!-- <a href="{{'/store/book/' . $book->BookID}}"> -->
-          <!-- </a> -->
           <img src="{{'/images/' . $book->Image}}" />
         </div>
         <div class="details absolute text-white text-center">
