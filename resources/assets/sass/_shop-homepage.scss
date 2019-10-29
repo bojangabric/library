@@ -181,14 +181,14 @@ body {
 }
 
 .delete-book {
+  @apply text-red-600;
   font-size: 25px !important;
-  color: red;
   transition: all 0.25s ease;
   transform: scale(1);
 }
 
 .delete-book:hover {
-  transform: scale(1.5) perspective(1px);
+  transform: scale(1.2) perspective(1px);
 }
 
 .header-icon {

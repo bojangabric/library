@@ -10,7 +10,8 @@ body {
 }
 
 .jumbotron {
-  background-image: url("/images/library.jpg");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url("/images/library.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/library.jpg");
   background-size: cover;
   color: black;
 }
@@ -183,8 +184,8 @@ body {
 }
 
 .delete-book {
+  color: #e53e3e;
   font-size: 25px !important;
-  color: red;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
   -webkit-transform: scale(1);
@@ -192,8 +193,8 @@ body {
 }
 
 .delete-book:hover {
-  -webkit-transform: scale(1.5) perspective(1px);
-          transform: scale(1.5) perspective(1px);
+  -webkit-transform: scale(1.2) perspective(1px);
+          transform: scale(1.2) perspective(1px);
 }
 
 .header-icon {
