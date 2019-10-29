@@ -1,4 +1,4 @@
-<div class="bg-white rounded shadow-md mt-6">
+<div class="bg-white rounded shadow-md my-6">
   <div class="font-semibold bg-gray-200 text-lg border-b p-3">
     Reviews
   </div>
