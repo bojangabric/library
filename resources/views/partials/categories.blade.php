@@ -1,4 +1,4 @@
-<div class="w-2/12 rounded-lg overflow-hidden mr-6">
+<div class="w-2/12 rounded-lg overflow-hidden mx-3 hidden lg:block">
   <?php
   $categories = App\Category::all();
 
