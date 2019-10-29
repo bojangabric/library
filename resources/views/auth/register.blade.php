@@ -3,7 +3,7 @@
 @section('title', 'Register')
 @section('content')
 
-<form class="mx-auto mt-8 p-8 bg-white shadow-md rounded w-full max-w-xl" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+<form class="mx-auto my-8 p-8 bg-white shadow-md rounded w-full max-w-xl" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
   @csrf
 
   <div class="flex flex-wrap -mx-3 mb-6">
