@@ -3,29 +3,29 @@
 @section('title', 'Home')
 @section('content')
 
-<div class="w-4/6 mx-auto">
-    <div class="jumbotron my-4 text-white rounded pl-10 pb-5">
-        <p class="text-6xl textstroke font-semibold pt-16">
+<div class="xl:w-5/6 mx-auto">
+    <div class="jumbotron mb-4 md:my-4 text-white md:rounded px-3 md:px-10 pb-5 md:mx-8">
+        <p class="text-3xl md:text-6xl font-semibold pt-8 md:pt-16">
             @guest
             Welcome to the Library!
             @else
             Welcome to the Library, {{ Auth::user()->name }}!
             @endguest
         </p>
-        <p class="text-xl textstroke font-semibold">Search for any book in the world</p>
+        <p class="text-lg md:text-xl font-semibold">Search for any book in the world</p>
         <div class="my-5">
-            <a href="/store/categories/1" class="bg-blue-600 py-3 px-5 rounded">Shop!</a>
+            <a href="/store/categories/1" class="bg-blue-600 py-2 px-4 md:py-3 md:px-5 rounded">Shop!</a>
         </div>
     </div>
 
-    <div class="flex flex-wrap justify-between">
+    <div class="flex flex-wrap mx-8">
         <?php
         $randBooks = App\Book::inRandomOrder()->take(4)->get();
 
         foreach ($randBooks as $book) {
             $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
             ?>
-            <div class="w-1/4">
+            <div class="w-full sm:w-1/2 lg:w-1/4 mb-5">
                 <div class="mx-2 rounded bg-white text-center pb-6 shadow-xl">
                     <a href="{{'/store/book/' . $book->BookID}}">
                         <img class="w-full h-64 rounded-t" src="{{'/images/' . $book->Image}}" alt="{{'/images/' . $book->Image}}">
