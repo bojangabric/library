@@ -51,24 +51,17 @@
           return false;
         }
 
-        var bookname = $("#bookName").text();
+        $(this).text('Added to cart');
+        $(this).removeClass('btn-cart');
+        $(this).addClass('opacity-50');
 
-        var div = $(this).closest(".btn-group");
-        if (!bookname)
-          bookname = $(this).parent().parent().parent().parent().find('h4:first').text();
-
-        div.empty();
-        if ('<?php echo isset($_GET['gridview']) ? $_GET['gridview'] : ''; ?>' == 'list-view')
-          div.append('<div class="btn-group ml-5"><button class="btn btn-primary disabled">In cart</button></div>');
-        else
-          div.append("<button class='btn btn-primary disabled'>In cart</button>");
         @auth
         $.ajax({
           type: 'POST',
           url: '/addBookToCart',
           data: {
             'userid': <?php echo json_encode(Auth::user()->id); ?>,
-            'bookname': bookname
+            'bookid': $(this).attr('data-bookid')
           },
         });
         @endauth

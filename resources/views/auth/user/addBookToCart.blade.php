@@ -1,12 +1,8 @@
 <?php
 
-$bookname = $_POST['bookname'];
-$userid = $_POST['userid'];
-
 try {
-    $book = DB::table('books')->where('Name', $bookname)->first();
     DB::table('shopping_carts')->insert(
-        ['user_id' => $userid, 'BookID' => $book->BookID]
+        ['user_id' => $_POST['userid'], 'BookID' => $_POST['bookid']]
     );
     echo 'success';
 } catch (\Exception $e) {
