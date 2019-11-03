@@ -14,18 +14,6 @@
       <span class="text-yellow-500 text-3xl">{{ html_entity_decode($book->getRating()) }}</span>
       <div class="font-semibold text-2xl text-gray-800">${{ $book->Price }}</div>
       <div class="inline-flex text-white relative">
-        <!-- <?php
-              if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
-                echo '<button type="button" class="btn btn-primary disabled">In cart</button>';
-              } else {
-                if (DB::table('books')->where('BookID', $book->BookID)->where('Quantity', '>', 0)->exists()) {
-                  echo '<button type="button" class="btn btn-primary">Buy</button>
-              <button class="btn btn-primary btn-cart">Add to cart</button>';
-                } else {
-                  echo '<button type="button" class="btn btn-primary disabled">Sold out</button>';
-                }
-              }
-              ?> -->
         <button class="bg-blue-500 border-r border-blue-400 hover:bg-blue-600 font-semibold py-2 px-4 rounded-l">
           Buy
         </button>

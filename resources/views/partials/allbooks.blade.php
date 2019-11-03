@@ -98,22 +98,6 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
             <div class="bg-green-500 text-white font-semibold text-center px-5 py-2 cursor-pointer opacity-50">Sold out</div>
             @endif
           </div>
-          <!-- if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
-            echo '<div class="btn-group"><button class="btn btn-primary disabled">In cart</button></div>';
-        } else {
-            if (DB::table('books')->where('BookID', $book->BookID)->where('Quantity', '>', 0)->exists()) {
-                <button type="button" class="btn btn-primary">Buy</button>';
-                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-                <span class="sr-only">Toggle Dropdown</span>';
-                </button>';
-                <div class="dropdown-menu dropdown-btn-cart">';
-                <button class="dropdown-item btn-cart">Add to cart</button>';
-                </div>';
-            }
-            else {
-                echo '<div class="btn-group"><button class="btn btn-primary disabled">Sold out</button></div>';
-            }
-        } -->
         </div>
       </div>
     </div>
