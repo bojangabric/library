@@ -9,7 +9,7 @@
 
   <div class="w-10/12">
 
-    <!-- @include('partials.sortby') -->
+    @include('partials.sortby')
 
     <div class="flex flex-wrap">
 
