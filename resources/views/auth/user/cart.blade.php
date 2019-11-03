@@ -39,7 +39,7 @@ foreach ($books as $bookid) {
           ${{ $bookPrices[$i][0] }}
         </td>
         <td class="text-right pl-2 sm:pl-0">
-          <i class="delete-book fa fa-minus-circle cursor-pointer"></i>
+          <i class="delete-book fa fa-minus-circle cursor-pointer" data-bookid="{{ $bookIDs[$i] }}"></i>
         </td>
         </tr>
         @endfor
@@ -66,7 +66,6 @@ foreach ($books as $bookid) {
 <script>
   $(function() {
     $(".delete-book").on("click", function() {
-      var bookname = $(this).closest("tr").find('td:first').text();
       $(this).closest("tr").remove();
 
       $.ajax({
@@ -74,7 +73,7 @@ foreach ($books as $bookid) {
         url: '/deleteBookFromCart',
         data: {
           'userid': <?php echo json_encode(Auth::user()->id); ?>,
-          'bookname': bookname
+          'bookid': $(this).attr('data-bookid')
         },
       });
     });
