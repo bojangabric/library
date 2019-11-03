@@ -1,9 +1,9 @@
-<div class="w-2/12 rounded-lg overflow-hidden mx-3 hidden lg:block">
+<div class="w-2/12 mx-3 hidden lg:block">
   <?php
   $categories = App\Category::all();
 
   foreach ($categories as $category) {
-    echo "<a class='text-lg text-blue-500 bg-white border px-4 py-2 block list-group-item' href='/store/categories/" . $category->CategoryID . "?sort=" . (isset($_GET['sort']) ? $_GET['sort'] : '') . "&gridview=" . (isset($_GET['gridview']) ? $_GET['gridview'] : '') . "'>" .
+    echo "<a class='text-lg text-blue-500 bg-white rounded border px-4 py-2 block list-group-item' href='/store/categories/" . $category->CategoryID . "?sort=" . (isset($_GET['sort']) ? $_GET['sort'] : '') . "&gridview=" . (isset($_GET['gridview']) ? $_GET['gridview'] : '') . "'>" .
       $category->CategoryName . "</a>";
   }
   ?>
