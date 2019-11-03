@@ -92,9 +92,11 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
             <a href="{{'/store/book/' . $book->BookID}}">
               <div class="bg-blue-500 text-white font-semibold text-center px-5 py-2">Read more</div>
             </a>
-            <a href="/">
-              <div class="bg-green-500 text-white font-semibold text-center px-5 py-2">Buy</div>
-            </a>
+            @if (DB::table('books')->where('BookID', $book->BookID)->where('Quantity', '>', 0)->exists())
+            <div class="bg-green-500 text-white font-semibold text-center px-5 py-2 cursor-pointer btn-cart" data-bookid="{{$book->BookID}}">Buy</div>
+            @else
+            <div class="bg-green-500 text-white font-semibold text-center px-5 py-2 cursor-pointer opacity-50">Sold out</div>
+            @endif
           </div>
           <!-- if (Auth::user() && DB::table('shopping_carts')->where('user_id', Auth::user()->id)->where('BookID', $book->BookID)->exists()) {
             echo '<div class="btn-group"><button class="btn btn-primary disabled">In cart</button></div>';
