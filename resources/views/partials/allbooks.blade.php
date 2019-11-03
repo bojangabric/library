@@ -76,7 +76,7 @@ if (isset($_GET['gridview']) && $_GET['gridview'] == 'list-view') {
   foreach ($books as $book) {
     $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
     ?>
-    <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4 justify-center flex">
+    <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4 justify-center md:justify-start flex">
       <div class="card relative overflow-hidden">
         <div class="image">
           <img src="{{'/images/' . $book->Image}}" />
