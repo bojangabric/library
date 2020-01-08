@@ -6,7 +6,6 @@
 
 body {
   margin-bottom: 60px;
-  background-image: url("/images/stone.jpg");
 }
 
 .jumbotron {
@@ -10972,6 +10971,14 @@ video {
 
 .pagination .disabled {
   color: #a0aec0;
+}
+
+.flickity-prev-next-button.previous {
+  left: -50px !important;
+}
+
+.flickity-prev-next-button.next {
+  right: -50px !important;
 }
 
 .card {
