@@ -3,43 +3,56 @@
 @section('title', 'Home')
 @section('content')
 
-<div class="xl:w-5/6 mx-auto">
-    <div class="jumbotron mb-4 md:my-4 text-white md:rounded px-3 md:px-10 pb-5 md:mx-8">
-        <p class="text-3xl md:text-6xl font-semibold pt-8 md:pt-16">
-            @guest
-            Welcome to the Library!
-            @else
-            Welcome to the Library, {{ Auth::user()->name }}!
-            @endguest
-        </p>
-        <p class="text-lg md:text-xl font-semibold">Search for any book in the world</p>
-        <div class="my-5">
-            <a href="/store/categories/1" class="bg-blue-600 py-2 px-4 md:py-3 md:px-5 rounded">Shop!</a>
-        </div>
-    </div>
+<div class="bg-gray-900 pb-40">
+  <div class="text-center text-4xl font-black uppercase pt-16 pb-20 text-white">Discover your next book</div>
+</div>
+<div class="xl:w-3/5 mx-auto -mt-32 ">
+  <flickity data-aos="fade-up" ref="flickity" :options="flickityOptions">
+    <book image="steve_jobs"></book>
+    <book image="it"></book>
+    <book image="murder_on_the_orient_express"></book>
+    <book image="ready_player_one"></book>
+    <book image="the_diary_of_a_young_girl"></book>
+    <book image="the_hitchhikers_guide_to_the_galaxy"></book>
+  </flickity>
+</div>
 
-    <div class="flex flex-wrap mx-8">
-        <?php
-        $randBooks = App\Book::inRandomOrder()->take(4)->get();
-
-        foreach ($randBooks as $book) {
-            $author = App\Author::where("AuthorID", "=", $book->AuthorID)->first();
-            ?>
-            <div class="w-full sm:w-1/2 lg:w-1/4 mb-5">
-                <div class="mx-2 rounded bg-white text-center pb-6 shadow-xl">
-                    <a href="{{'/store/book/' . $book->BookID}}">
-                        <img class="w-full h-64 rounded-t" src="{{'/images/' . $book->Image}}" alt="{{'/images/' . $book->Image}}">
-                    </a>
-                    <p class="text-2xl mt-5 mb-1 font-semibold">{{$book->Name}}</p>
-                    <p class="mb-6">{{$author->Name . ' ' . $author->Surname}}</p>
-                    <div class="bg-blue-500 w-1/2 mx-auto rounded text-white py-2">
-                        <a href="{{'/store/book/' . $book->BookID}}">Find Out More!</a>
-                    </div>
-                </div>
-            </div>
-        <?php
-        }
-        ?>
+<div class="xl:w-3/5 mx-auto px-10">
+  <div class="text-4xl font-black uppercase pt-32 pb-10 text-gray-800">
+    Browse by category
+  </div>
+  <div class="flex w-full justify-between">
+    <div class="bg-pink-400 rounded w-56 flex justify-center py-4">
+      <div class="flex items-center">
+        <div><img class="h-12 w-12 mr-4" src="images/cooking.png"></div>
+        <div class="text-white uppercase tracking-wider font-semibold">Business</div>
+      </div>
     </div>
+    <div class="bg-blue-400 rounded w-56 flex justify-center py-4">
+      <div class="flex items-center">
+        <div><img class="h-12 w-12 mr-4" src="images/cooking.png"></div>
+        <div class="text-white uppercase tracking-wider font-semibold">Romantic</div>
+      </div>
+    </div>
+    <div class="bg-green-400 rounded w-56 flex justify-center py-4">
+      <div class="flex items-center">
+        <div><img class="h-12 w-12 mr-4" src="images/cooking.png"></div>
+        <div class="text-white uppercase tracking-wider font-semibold">Biography</div>
+      </div>
+    </div>
+    <div class="bg-red-400 rounded w-56 flex justify-center py-4">
+      <div class="flex items-center">
+        <div><img class="h-12 w-12 mr-4" src="images/cooking.png"></div>
+        <div class="text-white uppercase tracking-wider font-semibold">Cookbooks</div>
+      </div>
+    </div>
+  </div>
+  <div class="flex pt-32 pb-10">
+    <div class="text-4xl font-black uppercase text-gray-800 w-3/5">
+      Audio books
+    </div>
+    <popular-categories></popular-categories>
+  </div>
+
 </div>
 @endsection
