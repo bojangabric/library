@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <div class="flex justify-between items-baseline">
-      <div class="text-4xl font-black uppercase text-gray-800">
+      <div class="text-4xl font-black uppercase text-gray-800 mb-6">
         Popular categories
       </div>
       <div class="text-gray-200">
@@ -16,7 +16,7 @@
           >
             <circle cx="12" cy="12" r="10" />
             <path
-              class="text-black"
+              class="text-gray-800"
               d="M13.7 15.3a1 1 0 0 1-1.4 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.4 1.4L10.42 12l3.3 3.3z"
             />
           </svg>
@@ -29,7 +29,7 @@
           >
             <circle cx="12" cy="12" r="10" />
             <path
-              class="text-black"
+              class="text-gray-800"
               d="M10.3 8.7a1 1 0 0 1 1.4-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.4-1.4l3.29-3.3-3.3-3.3z"
             />
           </svg>
