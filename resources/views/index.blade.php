@@ -3,18 +3,20 @@
 @section('title', 'Home')
 @section('content')
 
-<div class="bg-gray-900 pb-40">
-  <div class="text-center text-4xl font-black uppercase pt-16 pb-20 text-white">Discover your next book</div>
-</div>
-<div class="xl:w-3/5 mx-auto -mt-32 ">
-  <flickity data-aos="fade-up" ref="flickity" :options="flickityOptions">
-    <book image="steve_jobs"></book>
-    <book image="it"></book>
-    <book image="murder_on_the_orient_express"></book>
-    <book image="ready_player_one"></book>
-    <book image="the_diary_of_a_young_girl"></book>
-    <book image="the_hitchhikers_guide_to_the_galaxy"></book>
-  </flickity>
+<div style="margin-top: -25rem;">
+  <div class="pb-40">
+    <div class="text-center text-4xl font-black uppercase pt-16 pb-4 text-white">Discover your next book</div>
+  </div>
+  <div class="xl:w-1/2 mx-auto">
+    <flickity data-aos="fade-up" ref="flickity" :options="flickityOptions">
+      <book image="steve_jobs"></book>
+      <book image="it"></book>
+      <book image="murder_on_the_orient_express"></book>
+      <book image="ready_player_one"></book>
+      <book image="the_diary_of_a_young_girl"></book>
+      <book image="the_hitchhikers_guide_to_the_galaxy"></book>
+    </flickity>
+  </div>
 </div>
 
 <div class="xl:w-3/5 mx-auto px-10">
@@ -48,11 +50,13 @@
     </div>
   </div>
   <div class="flex pt-32 pb-10">
-    <div class="text-4xl font-black uppercase text-gray-800 w-3/5">
-      Audio books
-    </div>
+    <audio-books></audio-books>
     <popular-categories></popular-categories>
   </div>
-
+  <books-for-children></books-for-children>
+  <div class="flex pt-32 pb-10">
+    <top-books></top-books>
+    <top-authors></top-authors>
+  </div>
 </div>
 @endsection
