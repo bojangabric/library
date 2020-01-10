@@ -1,20 +1,15 @@
 <template>
   <div class="w-full sm:w-1/2 xl:w-1/3 px-10">
     <div class="rounded shadow-md overflow-hidden">
-      <img
-        style="height:20rem;"
-        class="w-full object-fill object-center"
-        :src="'images/' + image + '.jpg'"
-        alt=""
-      />
+      <img style="height:20rem;" class="w-full object-fill object-center" :src="'images/books/' + image + '.jpg'" alt="" />
     </div>
     <div class="flex justify-between items-center px-1">
       <div>
         <div class="sm:text-xl text-2xl text-gray-800 ">
-          IT
+          {{ title }}
         </div>
         <div class="sm:text-sm text-gray-700 mb-2 leading-none">
-          Stephen King
+          {{ author }}
         </div>
         <div class="flex">
           <svg
@@ -35,6 +30,6 @@
 
 <script>
 export default {
-  props: ["image"]
+  props: ['title', 'author', 'image']
 };
 </script>
