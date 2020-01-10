@@ -1,12 +1,12 @@
 <template>
   <div class="w-1/2 mb-4 flex">
-    <img class="w-24 object-cover rounded-md" src="images/it.jpg" />
-    <div class="ml-2">
+    <img class="w-24 object-cover rounded" :src="'images/books/' + image + '.jpg'" />
+    <div class="ml-4">
       <div class="sm:text-xl text-2xl text-gray-800 font-medium leading-none">
-        Romeo and Juliet
+        {{ title }}
       </div>
       <div class="sm:text-sm text-gray-600 mb-1">
-        William Shakespeare
+        {{ author }}
       </div>
       <div class="flex">
         <svg
@@ -25,5 +25,7 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['title', 'author', 'image']
+};
 </script>
