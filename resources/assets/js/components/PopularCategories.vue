@@ -5,15 +5,8 @@
         Popular categories
       </div>
       <div class="text-gray-200">
-        <button
-          @click="previous()"
-          class="focus:outline-none hover:text-gray-400"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            class="h-6 w-6 fill-current"
-          >
+        <button @click="previous()" class="focus:outline-none hover:text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
             <circle cx="12" cy="12" r="10" />
             <path
               class="text-gray-800"
@@ -22,11 +15,7 @@
           </svg>
         </button>
         <button @click="next()" class="focus:outline-none hover:text-gray-400">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            class="h-6 w-6 fill-current"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
             <circle cx="12" cy="12" r="10" />
             <path
               class="text-gray-800"
@@ -37,18 +26,18 @@
       </div>
     </div>
     <flickity data-aos="fade-up" ref="flickity" :options="flickityOptions">
-      <category image="steve_jobs"></category>
-      <category image="it"></category>
-      <category image="murder_on_the_orient_express"></category>
-      <category image="ready_player_one"></category>
-      <category image="the_diary_of_a_young_girl"></category>
-      <category image="the_hitchhikers_guide_to_the_galaxy"></category>
+      <category image="horror" number="90"></category>
+      <category image="comic" number="90"></category>
+      <category image="tech" number="90"></category>
+      <category image="history" number="90"></category>
+      <category image="romance" number="90"></category>
+      <category image="sports" number="90"></category>
     </flickity>
   </div>
 </template>
 
 <script>
-import Flickity from "vue-flickity";
+import Flickity from 'vue-flickity';
 
 export default {
   components: {
@@ -60,7 +49,7 @@ export default {
         prevNextButtons: false,
         pageDots: false,
         wrapAround: true,
-        cellAlign: "left"
+        cellAlign: 'left'
       }
     };
   },
