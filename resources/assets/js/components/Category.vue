@@ -1,18 +1,24 @@
 <template>
   <div class="w-full sm:w-1/3 pr-2">
-    <div class="rounded shadow-md overflow-hidden">
+    <a href="#!" class="block rounded overflow-hidden relative">
       <img
-        style="height:16rem;"
+        style="height:16rem;filter: brightness(75%);"
         class="w-full object-fill object-center"
-        :src="'images/' + image + '.jpg'"
+        :src="'images/categories/' + image + '.jpg'"
         alt=""
       />
-    </div>
+      <div class="absolute bottom-0 pl-4 pb-6">
+        <div class="text-white font-bold text-xl mb-1 ml-1">{{ image.replace(/^\w/, c => c.toUpperCase()) }}</div>
+        <div class="text-white py-1 px-3 rounded-full text-sm" style="background-color:rgba(255, 255, 255, 0.3);">
+          {{ number }} Books
+        </div>
+      </div>
+    </a>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["image"]
+  props: ['image', 'number']
 };
 </script>
