@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full">
+  <div class="w-full md:w-1/3 lg:w-1/2 sm:pb-0 pt-12 md:pt-0">
     <div class="flex justify-between items-baseline">
-      <div class="text-4xl font-black uppercase text-gray-800 mb-6">
+      <div class="text-2xl lg:text-3xl font-black uppercase text-gray-800 mb-6">
         Popular categories
       </div>
       <div class="text-gray-200">
