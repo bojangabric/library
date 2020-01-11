@@ -23,5 +23,6 @@
   "dependencies": {
     "browser-sync": "^2.26.7",
     "tailwindcss": "^1.2.0-canary.5",
+    "vue-flickity": "^1.2.1"
   }
 }
