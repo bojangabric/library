@@ -1,10 +1,10 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
 
 // Variables
-@import "variables";
-@import "shop-homepage";
-@import "admin-page";
+@import 'variables';
+@import 'shop-homepage';
+@import 'admin-page';
 
 @tailwind base;
 
@@ -34,12 +34,94 @@
   }
 }
 
-.flickity-prev-next-button.previous {
-  left: -50px !important;
+// @media (min-width: 640px) {
+//   .flickity-prev-next-button.previous {
+//     left: -50px !important;
+//   }
+
+//   .flickity-prev-next-button.next {
+//     right: -50px !important;
+//   }
+// }
+
+@media (min-width: 1280px) and (max-width: 1505px) {
+  .audiobook-title {
+    width: 8.6rem !important;
+  }
 }
 
-.flickity-prev-next-button.next {
-  right: -50px !important;
+@media (max-width: 390px) {
+  .audiobook-title {
+    width: 8rem !important;
+  }
+}
+
+.grid {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 150px);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+
+  .grid-1 {
+    grid-area: 1 / 1 / 3 / 3;
+  }
+  .grid-2 {
+  }
+  .grid-3 {
+  }
+  .grid-4 {
+  }
+  .grid-5 {
+  }
+  .grid-6 {
+  }
+  .grid-7 {
+  }
+
+  @screen sm {
+    & {
+      grid-template-columns: 200px repeat(3, 1fr);
+      grid-template-rows: repeat(2, 100px);
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+
+      .grid-1 {
+        grid-area: 1 / 1 / 3 / 2;
+      }
+      .grid-2 {
+        grid-area: 1 / 2 / 2 / 3;
+      }
+      .grid-3 {
+        grid-area: 1 / 3 / 2 / 4;
+      }
+      .grid-4 {
+        grid-area: 1 / 4 / 2 / 5;
+      }
+      .grid-5 {
+        grid-area: 2 / 2 / 3 / 3;
+      }
+      .grid-6 {
+        grid-area: 2 / 3 / 3 / 4;
+      }
+      .grid-7 {
+        grid-area: 2 / 4 / 3 / 5;
+      }
+    }
+  }
+
+  @screen md {
+    & {
+      grid-template-columns: 300px repeat(3, 1fr);
+      grid-template-rows: repeat(2, 150px);
+    }
+  }
+
+  @screen lg {
+    & {
+      grid-template-columns: 330px repeat(3, 1fr);
+      grid-template-rows: repeat(2, 175px);
+    }
+  }
 }
 
 .card {
