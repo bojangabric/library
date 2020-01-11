@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-12 flex">
+  <div class="mb-12 flex w-64">
     <img class="w-24 h-24 object-cover rounded" :src="'images/authors/' + image + '.jpg'" />
     <div class="ml-2">
       <div class="text-gray-800 font-medium leading-none mb-1">
