@@ -1,12 +1,12 @@
 <template>
-  <div class="w-2/3">
+  <div class="w-full xl:w-2/3 sm:pb-0 xl:pr-10">
     <div class="flex items-center pb-6">
-      <div class="text-4xl font-black uppercase text-gray-800">
+      <div class="text-2xl lg:text-3xl font-black uppercase text-gray-800">
         Top books
       </div>
       <a
         href="#!"
-        class="ml-4 sm:text-sm border bg-gray-200 text-gray-800 rounded px-2 py-1 mt-1 hover:bg-gray-300 transition-colors ease-in duration-100"
+        class="ml-4 sm:text-sm border bg-gray-200 text-gray-800 rounded px-2 py-1 hover:bg-gray-300 transition-colors ease-in duration-100"
       >
         Show all
       </a>
