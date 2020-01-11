@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full sm:w-1/3 pr-2">
+  <div class="w-1/2 sm:w-1/3 md:w-full lg:w-1/3 pr-2">
     <a href="#!" class="block rounded overflow-hidden relative">
       <img
-        style="height:16rem;filter: brightness(75%);"
+        style="height:18rem;filter: brightness(75%);"
         class="w-full object-fill object-center"
         :src="'images/categories/' + image + '.jpg'"
         alt=""
