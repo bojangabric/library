@@ -18,7 +18,7 @@
 </div>
 
 <div class="xl:w-3/5 mx-auto px-4 sm:px-10 xl:px-0">
-  <div class="text-2xl sm:text-3xl font-black uppercase pt-20 sm:pt-32 mb-6 text-gray-800">
+  <div class="text-2xl lg:text-3xl font-black uppercase pt-20 sm:pt-32 mb-6 text-gray-800">
     Browse by category
   </div>
   <div class="flex flex-wrap justify-between">
