@@ -1,6 +1,6 @@
-import Flickity from "vue-flickity";
-import "./bootstrap";
-window.Vue = require("vue");
+import Flickity from 'vue-flickity';
+import './bootstrap';
+window.Vue = require('vue');
 
 Vue.component('book', require('./components/home/Book.vue'));
 Vue.component('category', require('./components/home/Category.vue'));
@@ -23,7 +23,7 @@ Vue.component('filter-ratings', require('./components/filter/StarRatings.vue'));
 Vue.component('filter-reviews', require('./components/filter/UserReviews.vue'));
 
 const app = new Vue({
-  el: "#app",
+  el: '#app',
   components: {
     Flickity
   },
