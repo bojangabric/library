@@ -164,3 +164,7 @@
     }
   }
 }
+
+.vue-slider {
+  @apply pl-2 pr-3 #{!important};
+}
