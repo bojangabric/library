@@ -23,7 +23,7 @@
   </div>
   <div class="flex flex-wrap justify-between">
     <div class="flex flex-col w-full sm:w-1/2 lg:w-1/4">
-      <a href="#!" class="w-full sm:w-auto rounded mr-2 sm:mr-4 py-2 mb-4 bg-blue-400 hover:bg-blue-500">
+      <a href="#!" class="w-full sm:w-auto rounded mr-2 sm:mr-4 py-2 mb-4 bg-blue-400 hover:bg-blue-500 transition-colors ease-in duration-100">
         <div class="flex items-center justify-center">
           <div><img class="h-12 w-12 mr-4" src="images/icons/piggy.png"></div>
           <div class="text-white uppercase tracking-wider font-semibold">Business</div>
@@ -31,7 +31,7 @@
       </a>
     </div>
     <div class="flex flex-col w-full sm:w-1/2 lg:w-1/4">
-      <a href="#!" class="w-full sm:w-auto rounded lg:mr-4 py-2 mb-4 bg-pink-400 hover:bg-pink-500">
+      <a href="#!" class="w-full sm:w-auto rounded lg:mr-4 py-2 mb-4 bg-pink-400 hover:bg-pink-500 transition-colors ease-in duration-100">
         <div class="flex items-center justify-center">
           <div><img class="h-12 w-12 mr-4" src="images/icons/heart.png"></div>
           <div class="text-white uppercase tracking-wider font-semibold">Romantic</div>
@@ -39,7 +39,7 @@
       </a>
     </div>
     <div class="flex flex-col w-full sm:w-1/2 lg:w-1/4">
-      <a href="#!" class="w-full sm:w-auto rounded mr-2 sm:mr-4 py-2 mb-4 bg-green-400 hover:bg-green-500">
+      <a href="#!" class="w-full sm:w-auto rounded mr-2 sm:mr-4 py-2 mb-4 bg-green-400 hover:bg-green-500 transition-colors ease-in duration-100">
         <div class="flex items-center justify-center">
           <div><img class="h-12 w-12 mr-4" src="images/icons/biography.png"></div>
           <div class="text-white uppercase tracking-wider font-semibold">Biography</div>
@@ -47,7 +47,7 @@
       </a>
     </div>
     <div class="flex flex-col w-full sm:w-1/2 lg:w-1/4">
-      <a href="#!" class="w-full sm:w-auto rounded py-2 mb-4 bg-red-400 hover:bg-red-500">
+      <a href="#!" class="w-full sm:w-auto rounded py-2 mb-4 bg-red-400 hover:bg-red-500 transition-colors ease-in duration-100">
         <div class="flex items-center justify-center">
           <div><img class="h-12 w-12 mr-4" src="images/icons/cooking.png"></div>
           <div class="text-white uppercase tracking-wider font-semibold">Cookbooks</div>
