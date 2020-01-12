@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/2 mb-4 flex">
+  <a
+    href="#!"
+    class="p-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/2 flex hover:bg-gray-200 rounded-lg transition-colors ease-in duration-100"
+  >
     <img class="w-24 object-cover rounded" :src="'images/books/' + image + '.jpg'" />
     <div class="ml-4">
       <div class="sm:text-xl text-2xl text-gray-800 font-medium leading-none">
@@ -21,7 +24,7 @@
         </svg>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>

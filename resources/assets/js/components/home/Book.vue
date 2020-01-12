@@ -1,10 +1,10 @@
 <template>
-  <div class="w-4/5 sm:w-1/3 px-10 sm:px-6 md:px-3 xl:px-10">
+  <div class="w-4/5 sm:w-1/3 px-10 sm:px-6 md:px-3 xl:px-10 xl:max-w-md">
     <div class="rounded shadow-md overflow-hidden">
       <img
         style="height:20rem;"
         class="w-full object-fill object-center"
-        :src="'images/books/' + image + '.jpg'"
+        :src="'/images/books/' + image + '.jpg'"
         alt=""
       />
     </div>
