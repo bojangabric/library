@@ -44,6 +44,18 @@
 //   }
 // }
 
+@media (min-width: 1280px) and (max-width: 1519px) {
+  .login-form {
+    @apply w-7/12 #{!important};
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1060px) {
+  .login-form {
+    @apply w-3/4 #{!important};
+  }
+}
+
 @media (min-width: 1280px) and (max-width: 1505px) {
   .audiobook-title {
     width: 8.6rem !important;
