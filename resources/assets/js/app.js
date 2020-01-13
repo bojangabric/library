@@ -36,7 +36,7 @@ const app = new Vue({
       },
       flickityLoginOptions: {
         prevNextButtons: false,
-        pageDots: false,
+        pageDots: true,
         wrapAround: true
       }
     };
