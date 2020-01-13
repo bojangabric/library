@@ -34,15 +34,15 @@
   }
 }
 
-// @media (min-width: 640px) {
-//   .flickity-prev-next-button.previous {
-//     left: -50px !important;
-//   }
+@screen md {
+  .flickity-prev-next-button.previous {
+    left: -50px !important;
+  }
 
-//   .flickity-prev-next-button.next {
-//     right: -50px !important;
-//   }
-// }
+  .flickity-prev-next-button.next {
+    right: -50px !important;
+  }
+}
 
 .flickity-page-dots {
   bottom: 8px !important;
