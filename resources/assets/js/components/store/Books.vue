@@ -11,7 +11,7 @@
             @click="sidebarOpen = true"
             class="bg-blue-500 rounded justify-center text-white py-2 px-6 flex items-center lg:hidden my-4"
           >
-            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <svg class="h-6 w-6 fill-current mr-2" viewBox="0 0 24 24">
               <path
                 d="M3 6a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zM3 12a1 1 0 011-1h16a1 1 0 110 2H4a1 1 0 01-1-1zM4 17a1 1 0 100 2h7a1 1 0 100-2H4z"
               />
