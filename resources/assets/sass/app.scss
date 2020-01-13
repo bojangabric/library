@@ -44,6 +44,14 @@
 //   }
 // }
 
+.flickity-page-dots {
+  bottom: 8px !important;
+
+  .is-selected {
+    background: #fff !important;
+  }
+}
+
 @media (min-width: 1280px) and (max-width: 1519px) {
   .login-form {
     @apply w-7/12 #{!important};
