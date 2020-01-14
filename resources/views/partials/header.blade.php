@@ -1,64 +1,71 @@
-<nav class="jumbotron relative" style="padding-bottom: 30rem;z-index:-1;">
-  <div class="absolute bottom-0 w-full h-40" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);"></div>
-  <div class="py-4" style="">
-    <div class="flex items-center justify-between flex-wrap xl:w-3/5 mx-auto">
-      <div class="flex items-center  text-white mr-6">
-        <a href="/" class="flex">
-          <img src="/favicon.png" class="header-icon">
-          <span class="font-semibold text-xl tracking-tight">Library</span>
+<nav class="{{ Request::is('/') ? 'jumbotron' : 'bg-gray-900'  }}">
+  <div class="w-4/5 flex justify-between lg:w-3/5 mx-auto py-12 items-center flex-wrap">
+    <div class="flex items-center  text-white mr-6">
+      <a href="/" class="flex">
+        <svg class="w-32 fill-current text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.87 57.3">
+          <path d="M219.91 24.65c-.07.13-.14.25-.2.38l.17-.39zM3.67 57.07a4.76 4.76 0 01-2.5-.71 2.22 2.22 0 01-1.17-2V2.65a2.12 2.12 0 011.29-2A6.54 6.54 0 014.14 0 6.54 6.54 0 017 .62a2.11 2.11 0 011.28 2v47.11h20.3a2 2 0 011.88 1.13 5.25 5.25 0 01.62 2.54 5.35 5.35 0 01-.62 2.5 2 2 0 01-1.88 1.17zM37.24 2.65a2.12 2.12 0 011.28-2 6.86 6.86 0 015.7 0 2.12 2.12 0 011.29 2v51.68a2.19 2.19 0 01-1.29 2 6.08 6.08 0 01-5.7 0 2.2 2.2 0 01-1.28-2zm18.58.08A2.25 2.25 0 0157 .7a4.68 4.68 0 012.48-.7h14.21a31.37 31.37 0 016 .55 12.88 12.88 0 015 2.07 10.53 10.53 0 013.47 4.13 15.32 15.32 0 011.29 6.75 16.52 16.52 0 01-1.79 8.12 10.12 10.12 0 01-4.84 4.53 16.44 16.44 0 013.28 1.72 9.86 9.86 0 012.53 2.54 11.58 11.58 0 011.64 3.67 19.56 19.56 0 01.59 5.11v1.48a21.39 21.39 0 01-1.21 7.65 13.58 13.58 0 01-3.28 5.08 12.16 12.16 0 01-4.92 2.81 21.22 21.22 0 01-6.13.86H59.48a4.2 4.2 0 01-2.69-.78 2.34 2.34 0 01-1-1.88zM64 22.87h9.3q7.89 0 7.89-8 0-4-2.15-5.74a9 9 0 00-5.89-1.75H64zm9.76 26.86a8.81 8.81 0 006.52-2.31q2.29-2.3 2.3-7.37V38.8q0-5.16-2.3-7.26a9.3 9.3 0 00-6.52-2.11H64v20.3zM99 2.65A2.6 2.6 0 01101.72 0h14.83a30 30 0 017 .78 15.23 15.23 0 015.74 2.65 12.82 12.82 0 013.86 4.92 18 18 0 011.41 7.58 19.69 19.69 0 01-.86 6.12 15.07 15.07 0 01-2.3 4.49 12.53 12.53 0 01-3.48 3.09 15.27 15.27 0 01-4.37 1.75l10.93 20.53a2.33 2.33 0 01.31 1.17 3 3 0 01-.47 1.57A5.24 5.24 0 01133.1 56a5.92 5.92 0 01-1.6.94 4.88 4.88 0 01-1.76.35c-1.35 0-2.44-.81-3.27-2.42l-11.4-22.33h-7.89v21.79a2.2 2.2 0 01-1.28 2 5.85 5.85 0 01-2.85.71 5.59 5.59 0 01-2.81-.71 2.19 2.19 0 01-1.25-2zm8.19 4.69v18.58h9.37a11 11 0 007-2.11c1.77-1.4 2.65-3.8 2.65-7.18s-.88-5.78-2.65-7.18a11 11 0 00-7-2.11z" />
+          <path d="M205 2.65A2.6 2.6 0 01207.69 0h14.83a30 30 0 016.95.78 15.23 15.23 0 015.74 2.65 12.72 12.72 0 013.86 4.92 18 18 0 011.41 7.58 19.69 19.69 0 01-.86 6.12 14.84 14.84 0 01-2.3 4.49 12.53 12.53 0 01-3.48 3.09 15.27 15.27 0 01-4.37 1.75l10.93 20.53a2.33 2.33 0 01.31 1.17 3 3 0 01-.47 1.57 5.24 5.24 0 01-1.17 1.35 5.92 5.92 0 01-1.6.94 4.87 4.87 0 01-1.75.35c-1.36 0-2.45-.81-3.28-2.42L221 32.55h-7.89v21.78a2.2 2.2 0 01-1.28 2 5.85 5.85 0 01-2.85.71 5.59 5.59 0 01-2.81-.71 2.19 2.19 0 01-1.25-2zm8.19 4.69v18.58h9.37a11 11 0 007-2.11c1.77-1.4 2.65-3.8 2.65-7.18s-.88-5.78-2.65-7.18a11 11 0 00-7-2.11zm35.41-4.69a2.12 2.12 0 011.28-2 6.86 6.86 0 015.7 0 2.12 2.12 0 011.29 2v51.68a2.19 2.19 0 01-1.29 2 6.08 6.08 0 01-5.7 0 2.2 2.2 0 01-1.28-2zM198 52.89L182.36 9.58v-.09a13.33 13.33 0 00-3.86-6 14.06 14.06 0 00-5-2.85 12 12 0 00-7.74 0 14.1 14.1 0 00-5.05 2.85 13.33 13.33 0 00-3.86 6 .32.32 0 000 .09l-15.76 43.31a3.1 3.1 0 002.07 4 3.47 3.47 0 004.27-2l1.62-4.5a14.82 14.82 0 016.65-.92l1.4.06.51-1.25c0-.12 5.2-12.44 10.43-22.66l.75-1.44.3-.59c.12-.24.24-.49.35-.73l.12-.26.11.26c.11.24.23.49.35.73l.3.59c.25.47.5 1 .74 1.44 5.24 10.22 10.38 22.54 10.44 22.66l.5 1.22 1.39-.06a14.84 14.84 0 016.66.92l1.62 4.5a3.46 3.46 0 004.26 2 3.1 3.1 0 002.07-3.97zm-13.47-7.12c-1.4-3.3-5.5-12.78-9.73-21.1-.32-.64-.64-1.26-1-1.9 0 0 0-.07-.05-.1a.44.44 0 01-.06-.1 23.06 23.06 0 01-1.57-3.81l-.09-.33c-.18-.65-.33-1.29-.44-1.92a12.72 12.72 0 01-.1-2.26 1 1 0 000-.25 2 2 0 10-4 0 2.09 2.09 0 000 .25 12.72 12.72 0 01-.1 2.26 17.69 17.69 0 01-.45 1.92c0 .11-.06.22-.09.33a21.45 21.45 0 01-1.57 3.81.46.46 0 01-.05.1v.1l-1 1.9c-4.22 8.32-8.31 17.8-9.72 21.1a22.09 22.09 0 00-4 .35l8.94-24.72.82-2.27 1.9-5.25 1-2.85a4 4 0 01.16-.45A6.52 6.52 0 01166 7.52a4.43 4.43 0 01.46-.29 5.34 5.34 0 01.59-.28l.37-.15a4 4 0 01.56-.17 1.67 1.67 0 01.3-.08 6.22 6.22 0 012.53 0 1.77 1.77 0 01.31.08 3.2 3.2 0 01.55.17l.37.15a4.6 4.6 0 01.59.28 4.43 4.43 0 01.46.29 6.51 6.51 0 012.58 3.06c.06.15.11.3.16.45l1 2.85 1.9 5.25.82 2.27 8.94 24.72a22.09 22.09 0 00-3.95-.35z" />
+        </svg>
+      </a>
+    </div>
+    <div class="block lg:hidden">
+      <button class="flex items-center px-3 py-2 border rounded text-white hover:text-gray-400 hover:border-white" id="menu">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
+    </div>
+    <div class="w-full lg:flex lg:items-center lg:w-auto hidden links">
+      <div class="text-sm lg:flex-grow">
+        <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-12 text-base font-semibold" href="/cart">
+          <div class="flex items-center">
+            <svg class="w-5 h-5 fill-current mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 519.8 512">
+              <path d="M477.9,70.2c-27.2-29.5-64.5-45.7-105-45.7c-30.3,0-58.1,9.6-82.6,28.5c-11.1,8.6-21.3,18.9-30.4,30.9
+                c-9.1-11.9-19.3-22.3-30.4-30.9c-24.5-18.9-52.2-28.5-82.6-28.5c-40.5,0-77.8,16.2-105,45.7C15.1,99.3,0.4,138.9,0.4,181.9
+                c0,44.2,16.4,84.5,51.6,127c31.2,37.6,75.8,75.7,127.5,119.7l0.3,0.3c17.4,14.9,37.2,31.7,58,49.8c6.1,5.4,14,8.3,22.1,8.3
+                c8.1,0,16-2.9,22.1-8.3c21-18.4,41.7-36,58.2-50.1l0.1-0.1c51.7-44.1,96.3-82.1,127.5-119.7c35.2-42.5,51.6-82.8,51.6-127
+                C519.4,138.9,504.6,99.3,477.9,70.2z M146.9,61.5c22,0,42.1,7,60,20.8c16,12.4,27.2,28.1,33.7,39.1c4.1,6.9,11.3,10.9,19.3,10.9
+                c8,0,15.2-4.1,19.3-10.9c6.6-11,17.7-26.7,33.7-39.1c17.8-13.8,38-20.8,60-20.8c30.1,0,57.7,12,77.8,33.8
+                c20.5,22.2,31.7,53,31.7,86.6c0,35.5-13.3,67.4-43.1,103.4c-29.1,35.1-72.6,72.2-122.9,115.1l-0.1,0.1
+                c-15.9,13.6-35.7,30.4-56.4,48.4c-20-17.5-39.2-33.8-56.1-48.2l-0.3-0.2c-50.4-42.9-93.9-80-123-115.2
+                c-29.8-35.9-43.1-67.8-43.1-103.4c0-33.6,11.3-64.4,31.7-86.6C89.2,73.5,116.8,61.5,146.9,61.5z" />
+            </svg>
+            Wishlist
+          </div>
         </a>
-      </div>
-      <div class="block lg:hidden">
-        <button class="flex items-center px-3 py-2 border rounded text-white border-teal-400 hover:text-gray-400 hover:border-white" id="menu">
-          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
-      </div>
-      <div class="w-full lg:flex lg:items-center lg:w-auto hidden links">
-        <div class="text-sm lg:flex-grow">
-          <div class="block mt-4 lg:inline-block lg:mt-0 w-full lg:w-auto mr-4">
-            <form method="GET" action="/store/categories/1">
-              <input class="p-2 mr-0 rounded-l outline-none" type="text" name="keyword" placeholder="Search for a book...">
-              <button class="text-white bg-blue-500 px-3 py-2 -ml-1 rounded-r outline-none" type="submit">
-                <i class="fa fa-search"></i>
-              </button>
+        @guest
+        <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 text-base font-semibold" href="/login">
+          <div class="flex items-center">
+            <svg class="w-5 h-5 fill-current mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148
+                C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962
+                c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216
+                h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40
+                c59.551,0,108,48.448,108,108S315.551,256,256,256z" />
+            </svg>
+            Login
+          </div>
+        </a>
+        @else
+        <div class="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
+          <div class="mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4 text-base font-semibold username cursor-pointer">
+            {{ Auth::user()->name }}
+            <i class="fa fa-caret-down"></i>
+          </div>
+          <div class="mt-1 absolute bg-gray-900 rounded border border-gray-800 overflow-hidden flex flex-col username-options hidden z-10">
+            @if (Auth::user()->isAdmin())
+            <a class="p-3 hover:text-gray-400 border-b border-gray-800" href="/admin">Admin dashboard</a>
+            @endif
+            <a class="p-3 hover:text-gray-400 border-b border-gray-800" href="/settings">Settings</a>
+            <a class="p-3 hover:text-gray-400 border-b border-gray-800" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}
+            </a>
+            <form id="logout-form" class="hidden" action="{{ route('logout') }}" method="POST">
+              @csrf
             </form>
           </div>
-          <a href="/store/categories/1" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4 text-base font-semibold">
-            Shop
-          </a>
-          @auth
-          @if (!Auth::user()->isAdmin())
-          <a class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4 text-base font-semibold" href="/cart">Cart</a>
-          @endif
-          @endauth
-          <a class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4 text-base font-semibold" href="/contact">Contact</a>
-
-          @guest
-          <a class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4 text-base font-semibold" href="/login">Login</a>
-          <a class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4 text-base font-semibold" href="/register">Register</a>
-          @else
-          <div class="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
-            <div class="mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4 text-base font-semibold username cursor-pointer">
-              {{ Auth::user()->name }}
-              <i class="fa fa-caret-down"></i>
-            </div>
-            <div class="mt-1 absolute bg-gray-900 rounded border border-gray-800 overflow-hidden flex flex-col username-options hidden z-10">
-              @if (Auth::user()->isAdmin())
-              <a class="p-3 hover:text-gray-400 border-b border-gray-800" href="/admin">Admin dashboard</a>
-              @endif
-              <a class="p-3 hover:text-gray-400 border-b border-gray-800" href="/settings">Settings</a>
-              <a class="p-3 hover:text-gray-400 border-b border-gray-800" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-              </a>
-              <form id="logout-form" class="hidden" action="{{ route('logout') }}" method="POST">
-                @csrf
-              </form>
-            </div>
-          </div>
-          @endguest
         </div>
+        @endguest
       </div>
     </div>
   </div>
