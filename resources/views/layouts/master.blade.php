@@ -9,7 +9,7 @@
   <link href="/css/app.css" rel="stylesheet">
   <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <title>@yield('title') - Library</title>
-  <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 </head>
 
 <body class="relative min-h-screen">
