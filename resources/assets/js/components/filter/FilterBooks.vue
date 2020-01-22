@@ -1,7 +1,7 @@
 <template>
   <div
     :class="sidebarOpen ? 'translate-x-0 ease-out ' : '-translate-x-full ease-in'"
-    class="transform transition duration-100 bg-white border self-start whitespace-no-wrap p-3 lg:rounded lg:translate-x-0 mr-4 z-30 fixed inset-y-0 left-0 w-64 lg:w-auto overflow-y-auto lg:overflow-visible lg:static lg:block"
+    class="transform transition duration-100 bg-white shadow self-start whitespace-no-wrap p-3 lg:rounded lg:translate-x-0 mr-4 z-30 fixed inset-y-0 left-0 w-64 lg:w-auto overflow-y-auto lg:overflow-visible lg:static lg:block"
   >
     <div class="absolute top-0 left-0 pl-2 pt-3 lg:hidden">
       <button @click="toggleSidebar" class="block text-gray-600 hover:text-gray-800">
