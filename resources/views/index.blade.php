@@ -4,8 +4,13 @@
 @section('content')
 
 <div style="margin-top: -25rem;">
-  <div class="pb-40">
-    <div class="text-center text-5xl font-black uppercase pt-16 pb-4 text-white">Discover your next book</div>
+  <div class="pb-32 text-center text-white">
+    <div class="text-5xl font-black uppercase pt-16 pb-6">Discover your next book</div>
+    <a href="#!">
+      <div class="inline-block rounded py-3 px-5 bg-orange-500 hover:bg-orange-600 transition-colors ease-in duration-100">
+        <div class="uppercase tracking-wider font-semibold">Browse now</div>
+      </div>
+    </a>
   </div>
   <div class="md:w-4/5 xl:w-3/5 mx-auto">
     <flickity data-aos="fade-up" ref="flickity" :options="flickityOptions">
